@@ -21,5 +21,5 @@ from DaktariSasaBE import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('DaktariSasaBE/', views.patient_list),
-    path('DaktariSasaBE/<int:id>', views.patient_list)
+    path('DaktariSasaBE/<int:id>', views.patient_details)
 ]
