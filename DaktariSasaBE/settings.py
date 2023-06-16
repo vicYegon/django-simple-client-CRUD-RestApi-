@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'corsheaders',
     'rest_framework',
     'DaktariSasaBE',
     'django.contrib.admin',
@@ -49,7 +50,25 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
+
+
+# cors settings to allow connection to .NET razorpages
+
+# CORS_ALLOWED_ORIGINS = [
+#     'https://your-razor-pages-app-domain.com',
+# ]
+
+# # settings to types of requests:
+# CORS_ALLOW_METHODS = [
+#     'DELETE',
+#     'GET',
+#     'OPTIONS',
+#     'PATCH',
+#     'POST',
+#     'PUT',
+# ]
 
 ROOT_URLCONF = 'DaktariSasaBE.urls'
 
@@ -77,8 +96,13 @@ WSGI_APPLICATION = 'DaktariSasaBE.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME':'mydb2',
+        'USER':'root',
+        'PASSWORD': 'ilovecoding100%',
+        'PORT': 3306,
+        'HOST':'127.0.0.1'
     }
 }
 
